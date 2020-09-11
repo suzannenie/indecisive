@@ -16,6 +16,8 @@
 		DF10E54C250BE77D0008BCE1 /* IndecisiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF10E54B250BE77D0008BCE1 /* IndecisiveTests.swift */; };
 		DF10E557250BF0430008BCE1 /* Decision.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF10E556250BF0430008BCE1 /* Decision.swift */; };
 		DF10E55D250BF2900008BCE1 /* Choice.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF10E55C250BF2900008BCE1 /* Choice.swift */; };
+		DF10E55F250BF5160008BCE1 /* ChoiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF10E55E250BF5160008BCE1 /* ChoiceTableViewCell.swift */; };
+		DF10E561250BF7290008BCE1 /* ChoiceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF10E560250BF7290008BCE1 /* ChoiceTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 		DF10E54D250BE77D0008BCE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF10E556250BF0430008BCE1 /* Decision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decision.swift; sourceTree = "<group>"; };
 		DF10E55C250BF2900008BCE1 /* Choice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Choice.swift; sourceTree = "<group>"; };
+		DF10E55E250BF5160008BCE1 /* ChoiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceTableViewCell.swift; sourceTree = "<group>"; };
+		DF10E560250BF7290008BCE1 /* ChoiceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,8 @@
 				DF10E55C250BF2900008BCE1 /* Choice.swift */,
 				DF10E556250BF0430008BCE1 /* Decision.swift */,
 				DF10E53A250BE7760008BCE1 /* Main.storyboard */,
+				DF10E55E250BF5160008BCE1 /* ChoiceTableViewCell.swift */,
+				DF10E560250BF7290008BCE1 /* ChoiceTableViewController.swift */,
 				DF10E53D250BE77D0008BCE1 /* Assets.xcassets */,
 				DF10E53F250BE77D0008BCE1 /* LaunchScreen.storyboard */,
 				DF10E542250BE77D0008BCE1 /* Info.plist */,
@@ -207,9 +213,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF10E539250BE7760008BCE1 /* ViewController.swift in Sources */,
+				DF10E561250BF7290008BCE1 /* ChoiceTableViewController.swift in Sources */,
 				DF10E55D250BF2900008BCE1 /* Choice.swift in Sources */,
 				DF10E535250BE7760008BCE1 /* AppDelegate.swift in Sources */,
 				DF10E537250BE7760008BCE1 /* SceneDelegate.swift in Sources */,
+				DF10E55F250BF5160008BCE1 /* ChoiceTableViewCell.swift in Sources */,
 				DF10E557250BF0430008BCE1 /* Decision.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

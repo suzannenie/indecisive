@@ -30,10 +30,5 @@ class ViewController: UIViewController, UITextFieldDelegate {
         choiceNameLabel.text = textField.text
     }
     
-    //MARK: Actions
-    @IBAction func setDefaultLabelText(_ sender: UIButton) {
-        choiceNameLabel.text = "Default Text"
-    }
-    
 }
 

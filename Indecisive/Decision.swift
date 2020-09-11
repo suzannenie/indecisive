@@ -15,7 +15,15 @@ class Decision {
     
     
     //MARK: Initialization
-    init(name: String, photo: UIImage?, rating: Int) {
+    init?(name: String) {
+        
+        // The name must not be empty
+        guard !name.isEmpty else {
+            return nil
+        }
+        
+        // Initialize stored properties.
+        self.name = name
         
     }
     
