@@ -102,6 +102,20 @@ class ChoiceTableViewController: UITableViewController {
     */
     
     
+    //MARK: Actions
+    
+    @IBAction func unwindToChoiceList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? ChoiceViewController, let choice = sourceViewController.choice {
+            
+            // Add a new meal.
+            let newIndexPath = IndexPath(row: choices.count, section: 0)
+            
+            choices.append(choice)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
+    }
+    
+    
     //MARK: Private Methods
      
     private func loadSampleChoices() {
