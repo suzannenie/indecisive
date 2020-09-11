@@ -30,5 +30,15 @@ class IndecisiveTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    
+    //MARK: Choice Class Tests
+    // Confirm that the Choice initializer returns a Choice object when passed valid parameters.
+    func testChoiceInitializationSucceeds() {
+        
+    }
+    // Confirm that the Choice initialier returns nil empty name.
+    func testChoiceInitializationFails() {
+       
+    }
 
 }
