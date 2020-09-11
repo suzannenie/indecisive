@@ -34,6 +34,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="nameLabel" destination="2M9-ot-ej5" id="zWF-xG-Pl9"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ShowChoiceDetail" id="rWz-hl-mxy"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -45,9 +46,7 @@
                     <navigationItem key="navigationItem" title="Decision A" id="DKC-E9-5BN">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="L7Y-rC-0aE">
                             <connections>
-                                <segue destination="XDr-Ta-Hv0" kind="popoverPresentation" popoverAnchorBarButtonItem="L7Y-rC-0aE" id="tVT-yx-1Ik">
-                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                </segue>
+                                <segue destination="XDr-Ta-Hv0" kind="presentation" identifier="AddChoice" id="tVT-yx-1Ik"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -149,7 +148,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iIF-Cc-P9Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="99.776785714285708"/>
+            <point key="canvasLocation" x="1126" y="480"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="8DE-fc-qNy"/>
+    </inferredMetricsTieBreakers>
 </document>

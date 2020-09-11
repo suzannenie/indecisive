@@ -27,6 +27,13 @@ class ChoiceViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         // Do any additional setup after loading the view.
         nameTextField.delegate = self
         
+        // Set up views if editing an existing Meal.
+        if let choice = choice {
+            navigationItem.title = choice.name
+            nameTextField.text = choice.name
+            choiceNameLabel.text = choice.name
+        }
+        
         // Enable the Save button only if the text field has a valid Meal name.
         updateSaveButtonState()
     }
@@ -40,7 +47,7 @@ class ChoiceViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
         updateSaveButtonState()
-        navigationItem.title = textField.text
+        choiceNameLabel.text = textField.text
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {
         // Disable the Save button while editing.
@@ -50,7 +57,18 @@ class ChoiceViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     
     //MARK: Navigation
     @IBAction func cancel(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+        // Depending on style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.
+        let isPresentingInAddChoiceMode = presentingViewController is UINavigationController
+        
+        if isPresentingInAddChoiceMode {
+            dismiss(animated: true, completion: nil)
+        }
+        else if let owningNavigationController = navigationController{
+            owningNavigationController.popViewController(animated: true)
+        }
+        else {
+            fatalError("The ChoiceViewController is not inside a navigation controller.")
+        }
     }
     
     // This method lets you configure a view controller before it's presented.

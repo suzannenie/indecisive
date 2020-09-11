@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class ChoiceTableViewController: UITableViewController {
     
@@ -16,15 +17,21 @@ class ChoiceTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Load the sample data.
-        loadSampleChoices()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        // Use the edit button item provided by the table view controller.
+        navigationItem.leftBarButtonItem = editButtonItem
+        
+        // Load any saved meals, otherwise load sample data.
+        if let savedChoices = loadChoices() {
+            choices += savedChoices
+        }
+        else {
+            // Load the sample data.
+            loadSampleChoices()
+        }
     }
 
     // MARK: - Table view data source
@@ -64,17 +71,20 @@ class ChoiceTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            choices.remove(at: indexPath.row)
+            saveChoices()
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
+        
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
@@ -91,15 +101,40 @@ class ChoiceTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        super.prepare(for: segue, sender: sender)
+        
+        switch(segue.identifier ?? "") {
+            
+        case "AddChoice":
+            os_log("Adding a new choice.", log: OSLog.default, type: .debug)
+            
+        case "ShowChoiceDetail":
+            guard let choiceDetailViewController = segue.destination as? ChoiceViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            guard let selectedChoiceCell = sender as? ChoiceTableViewCell else {
+                fatalError("Unexpected sender: \(String(describing: sender))")
+            }
+            
+            guard let indexPath = tableView.indexPath(for: selectedChoiceCell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            
+            let selectedChoice = choices[indexPath.row]
+            choiceDetailViewController.choice = selectedChoice
+            
+        default:
+            fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
+        }
     }
-    */
+    
     
     
     //MARK: Actions
@@ -107,11 +142,19 @@ class ChoiceTableViewController: UITableViewController {
     @IBAction func unwindToChoiceList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? ChoiceViewController, let choice = sourceViewController.choice {
             
-            // Add a new meal.
-            let newIndexPath = IndexPath(row: choices.count, section: 0)
-            
-            choices.append(choice)
-            tableView.insertRows(at: [newIndexPath], with: .automatic)
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                // Update an existing meal.
+                choices[selectedIndexPath.row] = choice
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+            }
+            else {
+                // Add a new choice.
+                let newIndexPath = IndexPath(row: choices.count, section: 0)
+                
+                choices.append(choice)
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
+            saveChoices()
         }
     }
     
@@ -132,5 +175,31 @@ class ChoiceTableViewController: UITableViewController {
         
         choices += [choice1, choice2, choice3]
     }
-
+    
+    private func saveChoices() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(choices, toFile: Choice.ArchiveUrl.path)
+        if isSuccessfulSave {
+            os_log("Meals successfully saved.", log: OSLog.default, type: .debug)
+        } else {
+            os_log("Failed to save meals...", log: OSLog.default, type: .error)
+        }
+//        do {
+//            let data = try NSKeyedArchiver.archivedData(withRootObject: choices, requiringSecureCoding: true)
+//            try data.write(to: Choice.ArchiveUrl)
+//
+//        } catch {
+//
+//            os_log("Failed to save ...", log: OSLog.default, type: .error)
+//        }
+    }
+    
+    private func loadChoices() -> [Choice]?  {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Choice.ArchiveUrl.path) as? [Choice]
+//        if let archivedData = try? Data(contentsOf: Choice.ArchiveUrl),
+//            let myObject = (try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(archivedData)) as? [Choice] {
+//                return myObject
+//        }
+//        os_log("Failed to LOAD ...", log: OSLog.default, type: .error)
+//        return nil
+    }
 }
