@@ -13,8 +13,8 @@ class ChoiceViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     
     //MARK: Properties
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var choiceNameLabel: UILabel!
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var optionsText: UITextView!
     
     /*
      This value is either passed by `MealTableViewController` in `prepare(for:sender:)`
@@ -27,14 +27,16 @@ class ChoiceViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         // Do any additional setup after loading the view.
         nameTextField.delegate = self
         
+        optionsText.text = "Enter options here\r\nPress return between them"
+        optionsText.textColor = UIColor.lightGray
+        
         // Set up views if editing an existing Meal.
         if let choice = choice {
             navigationItem.title = choice.name
             nameTextField.text = choice.name
-            choiceNameLabel.text = choice.name
         }
         
-        // Enable the Save button only if the text field has a valid Meal name.
+        // Enable the Save button only if the text field has a valid Choice name.
         updateSaveButtonState()
     }
     
@@ -47,7 +49,7 @@ class ChoiceViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
         updateSaveButtonState()
-        choiceNameLabel.text = textField.text
+        navigationItem.title = textField.text
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {
         // Disable the Save button while editing.
@@ -83,9 +85,10 @@ class ChoiceViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         }
         
         let name = nameTextField.text ?? ""
+        let options = optionsText.text ?? "Enter options here\r\nPress return between them"
         
         // Set the choice to be passed to ChoiceTableViewController after the unwind segue.
-        choice = Choice(name: name)
+        choice = Choice(name: name, options: options)
     }
     
     

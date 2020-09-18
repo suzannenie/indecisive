@@ -55,7 +55,7 @@
             </objects>
             <point key="canvasLocation" x="250.72463768115944" y="99.776785714285708"/>
         </scene>
-        <!--New Choice-->
+        <!--New Decision-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ChoiceViewController" customModule="Indecisive" customModuleProvider="target" sceneMemberID="viewController">
@@ -63,35 +63,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="f7x-zX-0lJ">
-                                <rect key="frame" x="0.0" y="76" width="414" height="66.5"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choice Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgO-8A-9OS">
-                                        <rect key="frame" x="155.5" y="0.0" width="103" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter choice" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ssz-o3-HxZ">
-                                        <rect key="frame" x="0.0" y="32.5" width="414" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                                    </textField>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="ssz-o3-HxZ" secondAttribute="trailing" id="sSL-lt-LHY"/>
-                                </constraints>
-                            </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VIU-nE-R8M">
+                                <rect key="frame" x="58" y="160" width="298" height="334"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter decision name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1y6-iD-oxN">
+                                <rect key="frame" x="58" y="118" width="298" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="f7x-zX-0lJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="4ru-qu-R0j"/>
-                            <constraint firstItem="f7x-zX-0lJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="OTV-iK-JKe"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="f7x-zX-0lJ" secondAttribute="trailing" id="sUG-2e-sT9"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="New Choice" id="WZG-XF-7vJ">
+                    <navigationItem key="navigationItem" title="New Decision" id="WZG-XF-7vJ">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Phc-E6-V9C">
                             <connections>
                                 <action selector="cancel:" destination="BYZ-38-t0r" id="sD0-KS-Sjh"/>
@@ -104,8 +95,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="choiceNameLabel" destination="jgO-8A-9OS" id="VsC-vp-fCH"/>
-                        <outlet property="nameTextField" destination="ssz-o3-HxZ" id="bdD-rF-enW"/>
+                        <outlet property="nameTextField" destination="1y6-iD-oxN" id="KXB-Yd-EJf"/>
+                        <outlet property="optionsText" destination="VIU-nE-R8M" id="TDC-gK-90U"/>
                         <outlet property="saveButton" destination="M6v-dg-mCZ" id="8LU-iT-TKj"/>
                     </connections>
                 </viewController>
