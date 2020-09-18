@@ -15,6 +15,7 @@ class ChoiceViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var optionsText: UITextView!
+    @IBOutlet weak var decisionMade: UILabel!
     
     /*
      This value is either passed by `MealTableViewController` in `prepare(for:sender:)`
@@ -26,6 +27,7 @@ class ChoiceViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         nameTextField.delegate = self
+        
         optionsText.delegate = self
         
         optionsText.text = "Enter options here\r\nPress return between them"
@@ -42,6 +44,11 @@ class ChoiceViewController: UIViewController, UITextFieldDelegate, UIImagePicker
             optionsText.font = UIFont(name: "Courier", size: 20)
         }
         
+        if optionsText.text.isEmpty {
+            optionsText.text = "Enter options here\r\nPress return between them"
+            optionsText.textColor = UIColor.lightGray
+        }
+        
         // Enable the Save button only if the text field has a valid Choice name.
         updateSaveButtonState()
     }
@@ -50,22 +57,24 @@ class ChoiceViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     //MARK: UITextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Hide the keyboard.
-        textField.resignFirstResponder()
+//        textField.resignFirstResponder()
         return true
-//        let nextTag = textField.tag + 1
-//            // Try to find next responder
-//        let nextResponder = textField.superview?.viewWithTag(nextTag) as UIResponder?
-//
-//            if nextResponder != nil {
-//                // Found next responder, so set it
-//                nextResponder?.becomeFirstResponder()
-//            } else {
-//                // Not found, so remove keyboard
-//                textField.resignFirstResponder()
-//            }
-//
-//            return false
+//        return false
         
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String){
+        // Limit to 9 characters
+        if range.location >= 9 {
+            nameTextField.enablesReturnKeyAutomatically = true
+        } else {
+            nameTextField.enablesReturnKeyAutomatically = false
+        }
+    }
+    
+    func textViewShouldReturn(_ textView: UITextField) -> Bool {
+        textView.resignFirstResponder()
+        return true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -82,6 +91,7 @@ class ChoiceViewController: UIViewController, UITextFieldDelegate, UIImagePicker
             textView.textColor = UIColor.lightGray
             textView.font = UIFont(name: "Arial", size: 12)
         }
+        updateSaveButtonState()
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -90,6 +100,7 @@ class ChoiceViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
+        updateSaveButtonState()
         if textView.text == "Enter options here\r\nPress return between them" {
             textView.text = ""
             textView.textColor = UIColor.white
@@ -122,7 +133,8 @@ class ChoiceViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         
         // Configure the destination view controller only when the save button is pressed.
         guard let button = sender as? UIBarButtonItem, button === saveButton else {
-            os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
+            
+            
             return
         }
         
@@ -135,6 +147,19 @@ class ChoiceViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     
     
     //MARK: Actions
+    @IBAction func decide(_ sender: Any) {
+        let str = choice?.options
+        let choices = str?.components(separatedBy: "\n")
+        
+        guard choices?.count ?? 0 > 0 else {
+            return
+        }
+
+        let randomElement = choices?.randomElement()!
+        print(randomElement)
+        decisionMade.text = randomElement ?? ""
+        
+    }
     
     
     //MARK: Private Methods
