@@ -9,7 +9,7 @@
 import UIKit
 import os.log
 
-class ChoiceViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ChoiceViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
     
     //MARK: Properties
     @IBOutlet weak var nameTextField: UITextField!
@@ -26,6 +26,7 @@ class ChoiceViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         nameTextField.delegate = self
+        optionsText.delegate = self
         
         optionsText.text = "Enter options here\r\nPress return between them"
         optionsText.textColor = UIColor.lightGray
@@ -34,6 +35,11 @@ class ChoiceViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         if let choice = choice {
             navigationItem.title = choice.name
             nameTextField.text = choice.name
+            
+            os_log("loading choice", log: OSLog.default, type: .debug)
+            optionsText.text = choice.options
+            optionsText.textColor = UIColor.white
+            optionsText.font = UIFont(name: "Courier", size: 20)
         }
         
         // Enable the Save button only if the text field has a valid Choice name.
@@ -46,15 +52,51 @@ class ChoiceViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         // Hide the keyboard.
         textField.resignFirstResponder()
         return true
+//        let nextTag = textField.tag + 1
+//            // Try to find next responder
+//        let nextResponder = textField.superview?.viewWithTag(nextTag) as UIResponder?
+//
+//            if nextResponder != nil {
+//                // Found next responder, so set it
+//                nextResponder?.becomeFirstResponder()
+//            } else {
+//                // Not found, so remove keyboard
+//                textField.resignFirstResponder()
+//            }
+//
+//            return false
+        
     }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
-        updateSaveButtonState()
         navigationItem.title = textField.text
+        updateSaveButtonState()
     }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+//        if textView.text.trimmingCharacters(in: .whitespaces).isEmpty {
+//            // string contains non-whitespace characters
+//        }
+        if textView.text.isEmpty {
+            textView.text = "Enter options here\r\nPress return between them"
+            textView.textColor = UIColor.lightGray
+            textView.font = UIFont(name: "Arial", size: 12)
+        }
+    }
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         // Disable the Save button while editing.
         saveButton.isEnabled = false
     }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == "Enter options here\r\nPress return between them" {
+            textView.text = ""
+            textView.textColor = UIColor.white
+            textView.font = UIFont(name: "Courier", size: 20)
+        }
+    }
+
     
     
     //MARK: Navigation
