@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Decision A-->
+        <!--Indecision :)-->
         <scene sceneID="ZKo-bl-pbV">
             <objects>
                 <tableViewController id="Ncc-wr-8V5" customClass="ChoiceTableViewController" customModule="Indecisive" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,10 +23,10 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2M9-ot-ej5">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2M9-ot-ej5">
                                             <rect key="frame" x="20" y="21" width="374" height="58"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="30"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -43,7 +43,7 @@
                             <outlet property="delegate" destination="Ncc-wr-8V5" id="ZpF-hq-DmH"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Decision A" id="DKC-E9-5BN">
+                    <navigationItem key="navigationItem" title="Indecision :)" id="DKC-E9-5BN">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="L7Y-rC-0aE">
                             <connections>
                                 <segue destination="XDr-Ta-Hv0" kind="presentation" identifier="AddChoice" id="tVT-yx-1Ik"/>
@@ -138,6 +138,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Jdj-qe-Nwt">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.67046494732641859" green="0.73898980139186943" blue="0.96862745100000003" alpha="0.28232284330985913" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="28"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -156,6 +160,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="I7C-Ty-X2r">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="24"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

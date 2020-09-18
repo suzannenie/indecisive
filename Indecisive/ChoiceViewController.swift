@@ -18,8 +18,8 @@ class ChoiceViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     @IBOutlet weak var decisionMade: UILabel!
     
     /*
-     This value is either passed by `MealTableViewController` in `prepare(for:sender:)`
-     or constructed as part of adding a new meal.
+     This value is either passed by `ChoiceTableViewController` in `prepare(for:sender:)`
+     or constructed as part of adding a new choice.
      */
     var choice: Choice?
     
@@ -32,16 +32,18 @@ class ChoiceViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         
         optionsText.text = "Enter options here\r\nPress return between them"
         optionsText.textColor = UIColor.lightGray
+        optionsText.font = UIFont(name: "Menlo", size: 14)
         
-        // Set up views if editing an existing Meal.
+        // Set up views if editing an existing Choice.
         if let choice = choice {
             navigationItem.title = choice.name
             nameTextField.text = choice.name
+            nameTextField.font = UIFont(name: "Menlo", size: 20)
             
             os_log("loading choice", log: OSLog.default, type: .debug)
             optionsText.text = choice.options
             optionsText.textColor = UIColor.white
-            optionsText.font = UIFont(name: "Courier", size: 20)
+            optionsText.font = UIFont(name: "Menlo", size: 20)
         }
         
         if optionsText.text.isEmpty {
@@ -89,7 +91,7 @@ class ChoiceViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         if textView.text.isEmpty {
             textView.text = "Enter options here\r\nPress return between them"
             textView.textColor = UIColor.lightGray
-            textView.font = UIFont(name: "Arial", size: 12)
+            textView.font = UIFont(name: "Menlo", size: 14)
         }
         updateSaveButtonState()
     }
@@ -104,7 +106,7 @@ class ChoiceViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         if textView.text == "Enter options here\r\nPress return between them" {
             textView.text = ""
             textView.textColor = UIColor.white
-            textView.font = UIFont(name: "Courier", size: 20)
+            textView.font = UIFont(name: "Menlo", size: 20)
         }
     }
 
