@@ -143,7 +143,7 @@ class ChoiceTableViewController: UITableViewController {
         if let sourceViewController = sender.source as? ChoiceViewController, let choice = sourceViewController.choice {
             
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
-                // Update an existing meal.
+                // Update an existing choice.
                 choices[selectedIndexPath.row] = choice
                 tableView.reloadRows(at: [selectedIndexPath], with: .none)
             }
@@ -163,25 +163,19 @@ class ChoiceTableViewController: UITableViewController {
      
     private func loadSampleChoices() {
     
-        guard let choice1 = Choice(name: "choice1") else {
+        guard let choice1 = Choice(name: "Example", options: "choice 1 \r\nchoice 2 \r\nchoice 3") else {
             fatalError("Unable to instantiate choice1")
         }
-        guard let choice2 = Choice(name: "choice2") else {
-            fatalError("Unable to instantiate choice2")
-        }
-        guard let choice3 = Choice(name: "choice3") else {
-            fatalError("Unable to instantiate choice3")
-        }
         
-        choices += [choice1, choice2, choice3]
+        choices += [choice1]
     }
     
     private func saveChoices() {
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(choices, toFile: Choice.ArchiveUrl.path)
         if isSuccessfulSave {
-            os_log("Meals successfully saved.", log: OSLog.default, type: .debug)
+            os_log("Choices successfully saved.", log: OSLog.default, type: .debug)
         } else {
-            os_log("Failed to save meals...", log: OSLog.default, type: .error)
+            os_log("Failed to save choices...", log: OSLog.default, type: .error)
         }
 //        do {
 //            let data = try NSKeyedArchiver.archivedData(withRootObject: choices, requiringSecureCoding: true)

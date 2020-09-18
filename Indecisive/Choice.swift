@@ -13,6 +13,7 @@ class Choice: NSObject, NSCoding {
     
     //MARK: Properties
     var name: String
+    var options: String
     
     
     //MARK: Archiving Paths
@@ -22,11 +23,12 @@ class Choice: NSObject, NSCoding {
     //MARK: Types
     struct PropertyKey {
         static let name = "name"
+        static let options = "options"
     }
     
     
     //MARK: Initialization
-    init?(name: String) {
+    init?(name: String, options: String) {
         
         // The name must not be empty
         guard !name.isEmpty else {
@@ -35,12 +37,14 @@ class Choice: NSObject, NSCoding {
         
         // Initialize stored properties.
         self.name = name
+        self.options = options
         
     }
     
     //MARK: NSCoding
     func encode(with aCoder: NSCoder) {
         aCoder.encode(name, forKey: PropertyKey.name)
+        aCoder.encode(options, forKey: PropertyKey.options)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
@@ -52,12 +56,10 @@ class Choice: NSObject, NSCoding {
         }
         
         // Because photo is an optional property of Meal, just use conditional cast.
-        //let photo = aDecoder.decodeObject(forKey: PropertyKey.photo) as? UIImage
-        
-        //let rating = aDecoder.decodeInteger(forKey: PropertyKey.rating)
+        let options = aDecoder.decodeObject(forKey: PropertyKey.options) as? String ?? "Enter options here\r\nPress return between them"
         
         // Must call designated initializer.
-        self.init(name: name)
+        self.init(name: name, options: options)
         
     }
     
