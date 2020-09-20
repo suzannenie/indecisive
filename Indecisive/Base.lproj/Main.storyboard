@@ -67,24 +67,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="9Wp-4y-2IA">
-                                <rect key="frame" x="52" y="108" width="310" height="492.5"/>
+                                <rect key="frame" x="42" y="108" width="330" height="490.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter decision name" textAlignment="natural" minimumFontSize="27" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="1y6-iD-oxN">
-                                        <rect key="frame" x="5" y="0.0" width="300" height="34"/>
+                                        <rect key="frame" x="5" y="0.0" width="320" height="34"/>
                                         <color key="backgroundColor" systemColor="separatorColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="Rux-RO-IfB"/>
-                                            <constraint firstAttribute="width" constant="300" id="ehQ-sx-nVA"/>
+                                            <constraint firstAttribute="width" constant="320" id="llJ-TR-yNd"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VIU-nE-R8M">
-                                        <rect key="frame" x="5" y="49" width="300" height="334"/>
+                                        <rect key="frame" x="5" y="49" width="320" height="334"/>
                                         <color key="backgroundColor" systemColor="separatorColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="334" id="RWB-zK-DU3"/>
-                                            <constraint firstAttribute="width" constant="300" id="pKh-n5-969"/>
+                                            <constraint firstAttribute="width" constant="320" id="cUr-AU-8md"/>
                                         </constraints>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" systemColor="labelColor"/>
@@ -92,15 +92,15 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DY0-of-3o9">
-                                        <rect key="frame" x="81.5" y="398" width="147" height="39.5"/>
+                                        <rect key="frame" x="95" y="398" width="140" height="37.5"/>
                                         <color key="backgroundColor" red="0.67046494729999995" green="0.73898980140000003" blue="0.96862745100000003" alpha="0.75990316899999999" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" systemColor="systemGray2Color"/>
                                         <state key="normal" image="shuffle" catalog="system">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="DECIDE">
                                                     <attributes>
-                                                        <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <font key="NSFont" size="34" name="Menlo-Regular"/>
+                                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <font key="NSFont" size="32" name="Menlo-Regular"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
@@ -111,7 +111,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWE-fb-xVB">
-                                        <rect key="frame" x="155" y="452.5" width="0.0" height="40"/>
+                                        <rect key="frame" x="165" y="450.5" width="0.0" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="ZtW-3J-8BN"/>
                                         </constraints>
@@ -128,7 +128,6 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="9Wp-4y-2IA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="52" id="5UJ-IB-Xm0"/>
                             <constraint firstItem="9Wp-4y-2IA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="BKZ-7A-mvB"/>
                             <constraint firstItem="9Wp-4y-2IA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZdM-hb-2WC"/>
                         </constraints>

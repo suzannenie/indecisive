@@ -28,13 +28,14 @@ class ChoiceViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        // swipe back
+        navigationController?.interactivePopGestureRecognizer?.delegate = nil
+        
+        
         decideButton.layer.borderWidth = 4
         decideButton.layer.borderColor = UIColor.systemGray2.cgColor
         decideButton.layer.cornerRadius = 5
         decideButton.contentEdgeInsets = UIEdgeInsets(top: 8, left: 20, bottom: 8, right: 20)
-        
-        
-        
         
         nameTextField.delegate = self
         
