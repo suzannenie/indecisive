@@ -67,7 +67,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="9Wp-4y-2IA">
-                                <rect key="frame" x="42" y="108" width="330" height="490.5"/>
+                                <rect key="frame" x="42" y="108" width="330" height="456.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter decision name" textAlignment="natural" minimumFontSize="27" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="1y6-iD-oxN">
                                         <rect key="frame" x="5" y="0.0" width="320" height="34"/>
@@ -80,10 +80,10 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VIU-nE-R8M">
-                                        <rect key="frame" x="5" y="49" width="320" height="334"/>
+                                        <rect key="frame" x="5" y="49" width="320" height="300"/>
                                         <color key="backgroundColor" systemColor="separatorColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="334" id="RWB-zK-DU3"/>
+                                            <constraint firstAttribute="height" constant="300" id="XZQ-TE-Ycc"/>
                                             <constraint firstAttribute="width" constant="320" id="cUr-AU-8md"/>
                                         </constraints>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -92,14 +92,14 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DY0-of-3o9">
-                                        <rect key="frame" x="95" y="398" width="140" height="37.5"/>
+                                        <rect key="frame" x="95" y="364" width="140" height="37.5"/>
                                         <color key="backgroundColor" red="0.67046494729999995" green="0.73898980140000003" blue="0.96862745100000003" alpha="0.75990316899999999" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" systemColor="systemGray2Color"/>
                                         <state key="normal" image="shuffle" catalog="system">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="DECIDE">
                                                     <attributes>
-                                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="NSColor" red="0.92538958790000003" green="0.92554813619999998" blue="0.92537957429999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <font key="NSFont" size="32" name="Menlo-Regular"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
@@ -111,7 +111,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWE-fb-xVB">
-                                        <rect key="frame" x="165" y="450.5" width="0.0" height="40"/>
+                                        <rect key="frame" x="165" y="416.5" width="0.0" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="ZtW-3J-8BN"/>
                                         </constraints>

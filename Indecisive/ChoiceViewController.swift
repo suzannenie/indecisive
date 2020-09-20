@@ -32,7 +32,7 @@ class ChoiceViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
         
         
-        decideButton.layer.borderWidth = 4
+        decideButton.layer.borderWidth = 3
         decideButton.layer.borderColor = UIColor.systemGray2.cgColor
         decideButton.layer.cornerRadius = 5
         decideButton.contentEdgeInsets = UIEdgeInsets(top: 8, left: 20, bottom: 8, right: 20)
@@ -40,6 +40,7 @@ class ChoiceViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         nameTextField.delegate = self
         
         optionsText.delegate = self
+        optionsText.textContainerInset = UIEdgeInsets(top: 8, left: 14, bottom: 8, right: 14)
         
         optionsText.text = "Enter options here\r\nPress return between them"
         optionsText.textColor = UIColor.lightGray
@@ -67,7 +68,7 @@ class ChoiceViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         // Enable the Save button only if the text field has a valid Choice name.
         updateSaveButtonState()
     }
-    
+
     
     //MARK: UITextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
