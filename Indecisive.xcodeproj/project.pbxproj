@@ -11,12 +11,12 @@
 		DF10E537250BE7760008BCE1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF10E536250BE7760008BCE1 /* SceneDelegate.swift */; };
 		DF10E539250BE7760008BCE1 /* ChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF10E538250BE7760008BCE1 /* ChoiceViewController.swift */; };
 		DF10E53C250BE7760008BCE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF10E53A250BE7760008BCE1 /* Main.storyboard */; };
-		DF10E53E250BE77D0008BCE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF10E53D250BE77D0008BCE1 /* Assets.xcassets */; };
 		DF10E541250BE77D0008BCE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF10E53F250BE77D0008BCE1 /* LaunchScreen.storyboard */; };
 		DF10E54C250BE77D0008BCE1 /* IndecisiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF10E54B250BE77D0008BCE1 /* IndecisiveTests.swift */; };
 		DF10E55D250BF2900008BCE1 /* Choice.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF10E55C250BF2900008BCE1 /* Choice.swift */; };
 		DF10E55F250BF5160008BCE1 /* ChoiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF10E55E250BF5160008BCE1 /* ChoiceTableViewCell.swift */; };
 		DF10E561250BF7290008BCE1 /* ChoiceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF10E560250BF7290008BCE1 /* ChoiceTableViewController.swift */; };
+		DF5175302517BBF100E4BE54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF51752F2517BBF100E4BE54 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +35,6 @@
 		DF10E536250BE7760008BCE1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DF10E538250BE7760008BCE1 /* ChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceViewController.swift; sourceTree = "<group>"; };
 		DF10E53B250BE7760008BCE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		DF10E53D250BE77D0008BCE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DF10E540250BE77D0008BCE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DF10E542250BE77D0008BCE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF10E547250BE77D0008BCE1 /* IndecisiveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IndecisiveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +43,7 @@
 		DF10E55C250BF2900008BCE1 /* Choice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Choice.swift; sourceTree = "<group>"; };
 		DF10E55E250BF5160008BCE1 /* ChoiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceTableViewCell.swift; sourceTree = "<group>"; };
 		DF10E560250BF7290008BCE1 /* ChoiceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceTableViewController.swift; sourceTree = "<group>"; };
+		DF51752F2517BBF100E4BE54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +92,7 @@
 				DF10E53A250BE7760008BCE1 /* Main.storyboard */,
 				DF10E55E250BF5160008BCE1 /* ChoiceTableViewCell.swift */,
 				DF10E560250BF7290008BCE1 /* ChoiceTableViewController.swift */,
-				DF10E53D250BE77D0008BCE1 /* Assets.xcassets */,
+				DF51752F2517BBF100E4BE54 /* Assets.xcassets */,
 				DF10E53F250BE77D0008BCE1 /* LaunchScreen.storyboard */,
 				DF10E542250BE77D0008BCE1 /* Info.plist */,
 			);
@@ -190,7 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF10E541250BE77D0008BCE1 /* LaunchScreen.storyboard in Resources */,
-				DF10E53E250BE77D0008BCE1 /* Assets.xcassets in Resources */,
+				DF5175302517BBF100E4BE54 /* Assets.xcassets in Resources */,
 				DF10E53C250BE7760008BCE1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

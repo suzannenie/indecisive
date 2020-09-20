@@ -16,6 +16,8 @@ class ChoiceViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var optionsText: UITextView!
     @IBOutlet weak var decisionMade: UILabel!
+    @IBOutlet weak var decideButton: UIButton!
+    
     
     /*
      This value is either passed by `ChoiceTableViewController` in `prepare(for:sender:)`
@@ -26,6 +28,14 @@ class ChoiceViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        decideButton.layer.borderWidth = 4
+        decideButton.layer.borderColor = UIColor.systemGray2.cgColor
+        decideButton.layer.cornerRadius = 5
+        decideButton.contentEdgeInsets = UIEdgeInsets(top: 8, left: 20, bottom: 8, right: 20)
+        
+        
+        
+        
         nameTextField.delegate = self
         
         optionsText.delegate = self
@@ -33,6 +43,8 @@ class ChoiceViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         optionsText.text = "Enter options here\r\nPress return between them"
         optionsText.textColor = UIColor.lightGray
         optionsText.font = UIFont(name: "Menlo", size: 14)
+        
+        decisionMade.font = UIFont(name: "Menlo", size: 28)
         
         // Set up views if editing an existing Choice.
         if let choice = choice {
@@ -65,14 +77,14 @@ class ChoiceViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         
     }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String){
-        // Limit to 9 characters
-        if range.location >= 9 {
-            nameTextField.enablesReturnKeyAutomatically = true
-        } else {
-            nameTextField.enablesReturnKeyAutomatically = false
-        }
-    }
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String){
+//        // Limit to 9 characters
+//        if range.location >= 9 {
+//            nameTextField.enablesReturnKeyAutomatically = true
+//        } else {
+//            nameTextField.enablesReturnKeyAutomatically = false
+//        }
+//    }
     
     func textViewShouldReturn(_ textView: UITextField) -> Bool {
         textView.resignFirstResponder()
@@ -158,7 +170,6 @@ class ChoiceViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         }
 
         let randomElement = choices?.randomElement()!
-        print(randomElement)
         decisionMade.text = randomElement ?? ""
         
     }
