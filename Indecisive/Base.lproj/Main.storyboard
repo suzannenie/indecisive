@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Indecision-->
+        <!--Indecisive-->
         <scene sceneID="ZKo-bl-pbV">
             <objects>
                 <tableViewController id="Ncc-wr-8V5" customClass="ChoiceTableViewController" customModule="Indecisive" customModuleProvider="target" sceneMemberID="viewController">
@@ -45,7 +45,7 @@
                             <outlet property="delegate" destination="Ncc-wr-8V5" id="ZpF-hq-DmH"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Indecision" id="DKC-E9-5BN">
+                    <navigationItem key="navigationItem" title="Indecisive" id="DKC-E9-5BN">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="L7Y-rC-0aE">
                             <color key="tintColor" systemColor="labelColor"/>
                             <connections>
